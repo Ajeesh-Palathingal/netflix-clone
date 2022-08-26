@@ -22,12 +22,14 @@ class ScreenMainPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-        child: ValueListenableBuilder(
-            valueListenable: bottomNavbarIndexNotifier,
-            builder: (BuildContext context, int newIndex, _) {
-              return pages[newIndex];
-            }),
+      body: SafeArea(
+        child: Center(
+          child: ValueListenableBuilder(
+              valueListenable: bottomNavbarIndexNotifier,
+              builder: (BuildContext context, int newIndex, _) {
+                return pages[newIndex];
+              }),
+        ),
       ),
       bottomNavigationBar: BottomNavigationWidget(),
     );
