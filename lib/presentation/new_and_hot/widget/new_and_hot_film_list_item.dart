@@ -3,13 +3,13 @@ import 'package:netflix_clone/core/colors/colors.dart';
 import 'package:netflix_clone/core/constants.dart';
 
 class NewAndHotFilmListItem extends StatelessWidget {
-  const NewAndHotFilmListItem({
-    Key? key,
-    this.imageHeight = 0.45,
-    required this.filmTitle,
-    required this.iconButtons,
-    this.comingOn = const SizedBox()
-  }) : super(key: key);
+  const NewAndHotFilmListItem(
+      {Key? key,
+      this.imageHeight = 0.45,
+      required this.filmTitle,
+      required this.iconButtons,
+      this.comingOn = const SizedBox()})
+      : super(key: key);
 
   final double imageHeight;
   final String filmTitle;
@@ -26,23 +26,27 @@ class NewAndHotFilmListItem extends StatelessWidget {
           children: [
             SizedBox(
               height: screenWidth * imageHeight,
-              child: Image(image: NetworkImage("https://tse2.mm.bing.net/th?id=OIP.r4FrmHWVyG5t7jsSbMj1igHaEK&pid=Api&P=0"),),
+              child: Image(
+                image: NetworkImage(
+                    "https://tse2.mm.bing.net/th?id=OIP.r4FrmHWVyG5t7jsSbMj1igHaEK&pid=Api&P=0"),
+              ),
               // width: screenWidth - 60,
-              
             ),
             Positioned(
               bottom: 10,
               right: 10,
               child: CircleAvatar(
-                  radius: 20,
-                  backgroundColor: kBlackColor.withOpacity(0.5),
-                  child: IconButton(
-                      onPressed: () {},
-                      icon: Icon(
-                        Icons.volume_off,
-                        color: kWhiteColor,
-                        size: 20,
-                      ))),
+                radius: 20,
+                backgroundColor: kBlackColor.withOpacity(0.5),
+                child: IconButton(
+                  onPressed: () {},
+                  icon: Icon(
+                    Icons.volume_off,
+                    color: kWhiteColor,
+                    size: 20,
+                  ),
+                ),
+              ),
             ),
           ],
         ),
@@ -59,7 +63,6 @@ class NewAndHotFilmListItem extends StatelessWidget {
           ],
         ),
         comingOn,
-        
         kHeight,
         Row(
           children: [
@@ -87,5 +90,4 @@ class NewAndHotFilmListItem extends StatelessWidget {
       ],
     );
   }
-  
 }

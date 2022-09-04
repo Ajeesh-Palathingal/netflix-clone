@@ -69,7 +69,8 @@ class ComingSoonIconButtons extends StatelessWidget {
           icon: Icons.info_outline,
           label: "Info",
           fontSize: 12,
-        )
+        ),
+        
       ],
     );
   }

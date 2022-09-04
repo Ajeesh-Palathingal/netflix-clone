@@ -32,6 +32,9 @@ migrate_working_dir/
 .pub/
 /build/
 
+
+lib/infrastructure/api_key.dart
+
 # Web related
 lib/generated_plugin_registrant.dart
 

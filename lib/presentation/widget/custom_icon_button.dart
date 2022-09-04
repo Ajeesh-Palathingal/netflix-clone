@@ -6,32 +6,38 @@ import '../../core/colors/colors.dart';
 
 class CustomIconButton extends StatelessWidget {
   const CustomIconButton(
-      {Key? key, required this.icon, required this.label, this.fontSize = 20, this.fontWeight = FontWeight.normal})
+      {Key? key,
+      required this.icon,
+      required this.label,
+      this.fontSize = 20,
+      this.fontWeight = FontWeight.normal})
       : super(key: key);
 
   final IconData icon;
   final String label;
   final double fontSize;
-  final  fontWeight;
+  final fontWeight;
 
   @override
   Widget build(BuildContext context) {
     return TextButton(
-        onPressed: () {},
-        child: Column(
-          children: [
-            Icon(
-              icon,
+      onPressed: () {},
+      child: Column(
+        children: [
+          Icon(
+            icon,
+            color: kWhiteColor,
+          ),
+          Text(
+            label,
+            style: TextStyle(
               color: kWhiteColor,
+              fontSize: fontSize,
+              fontWeight: fontWeight,
             ),
-            Text(
-              label,
-              style: TextStyle(
-                  color: kWhiteColor,
-                  fontSize: fontSize,
-                  fontWeight: fontWeight),
-            )
-          ],
-        ));
+          )
+        ],
+      ),
+    );
   }
 }

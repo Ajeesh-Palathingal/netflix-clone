@@ -15,7 +15,6 @@ class ScreenNewAndHot extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    
     return DefaultTabController(
       length: 2,
       child: Scaffold(
@@ -30,25 +29,25 @@ class ScreenNewAndHot extends StatelessWidget {
         ),
         body: TabBarView(
           children: [
-          Padding(
-            padding: const EdgeInsets.only(top:10),
-            child: ListView.separated(
-              itemBuilder: (context, index) => ComingSoonTile(),
-              separatorBuilder: (context, index) => kHeight30,
-              itemCount: 5,
+            Padding(
+              padding: const EdgeInsets.only(top: 10),
+              child: ListView.separated(
+                itemBuilder: (context, index) => ComingSoonTile(),
+                separatorBuilder: (context, index) => kHeight30,
+                itemCount: 5,
+              ),
             ),
-          ),
-          Padding(
-            padding: const EdgeInsets.only(top:10),
-            child: ListView.separated(
-              itemBuilder: (context, index) => EveryonesWatchingTile(),
-              separatorBuilder: (context, index) => kHeight30,
-              itemCount: 5,
+            Padding(
+              padding: const EdgeInsets.only(top: 10),
+              child: ListView.separated(
+                itemBuilder: (context, index) => EveryonesWatchingTile(),
+                separatorBuilder: (context, index) => kHeight30,
+                itemCount: 5,
+              ),
             ),
-          ),
-        ]),
+          ],
+        ),
       ),
     );
   }
 }
-
