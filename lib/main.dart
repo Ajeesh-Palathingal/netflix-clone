@@ -8,7 +8,7 @@ import 'package:netflix_clone/core/colors/colors.dart';
 import 'package:netflix_clone/domain/core/DI/injectable.dart';
 import 'package:netflix_clone/presentation/main_page/screen_main_page.dart';
 
-void main() async {
+Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await configureInjection();
   runApp(const MyApp());

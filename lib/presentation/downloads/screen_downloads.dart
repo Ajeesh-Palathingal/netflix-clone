@@ -70,11 +70,11 @@ class _CenterSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      BlocProvider.of<DownloadsBloc>(context)
+          .add(const DownloadsEvent.getDownloadsImage());
+    });
     final screenSize = MediaQuery.of(context).size;
-    // WidgetsBinding.instance.addPostFrameCallback((_) {
-    BlocProvider.of<DownloadsBloc>(context)
-        .add(const DownloadsEvent.getDownloadsImage());
-    // });
 
     return Column(
       children: [
@@ -87,8 +87,9 @@ class _CenterSection extends StatelessWidget {
         ),
         BlocBuilder<DownloadsBloc, DownloadsState>(
           builder: (context, state) {
-            
-            print("$imageBaseUrl${state.downloads[1].posterPath}");
+            // print("$imageBaseUrl${state.downloads[1].posterPath}");
+            // print("state  =  ${state.downloads}");
+
             return SizedBox(
               height: screenSize.width * 0.8,
               width: screenSize.width,

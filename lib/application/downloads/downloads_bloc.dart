@@ -21,15 +21,15 @@ class DownloadsBloc extends Bloc<DownloadsEvent, DownloadsState> {
       emit(
         state.copyWith(
           isLoading: true,
-          downloadsFailureOrSuccessOption: None(),
+          downloadsFailureOrSuccessOption: none(),
         ),
       );
       final Either<MainFailure, List<Downloads>> downloadsOption =
           await downloadsRepo.getDownloadsImage();
-     
+
       log(downloadsOption.toString());
       emit(
-        downloadsOption.fold(
+        await downloadsOption.fold(
           (failure) => state.copyWith(
             isLoading: false,
             downloadsFailureOrSuccessOption: Some(

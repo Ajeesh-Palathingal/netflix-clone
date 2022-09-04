@@ -10,10 +10,13 @@ import 'package:netflix_clone/domain/downloads/models/downloads.dart';
 
 @LazySingleton(as: IDownloadsRepo)
 class DownloadsRepository implements IDownloadsRepo {
+  final state = 0;
+
   @override
   Future<Either<MainFailure, List<Downloads>>> getDownloadsImage() async {
     try {
-      final response = await Dio().get(ApiEndPoints.downloads);
+      final Response response = await Dio().get(ApiEndPoints.downloads);
+      // print("status code ${response.statusCode}");
       if (response.statusCode == 200 || response.statusCode == 201) {
         final downloadsList = (response.data['results'] as List)
             .map((e) => Downloads.fromJson(e))
@@ -26,6 +29,7 @@ class DownloadsRepository implements IDownloadsRepo {
       }
     } catch (e) {
       log(e.toString());
+           
       return const Left(MainFailure.clientFailure());
     }
   }
