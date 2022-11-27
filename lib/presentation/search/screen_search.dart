@@ -1,30 +1,54 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:netflix_clone/application/search/search_bloc.dart';
 import 'package:netflix_clone/core/colors/colors.dart';
 import 'package:netflix_clone/core/constants.dart';
+import 'package:netflix_clone/domain/core/debounds/debounce.dart';
 import 'package:netflix_clone/presentation/search/widget/search_idle.dart';
 import 'package:netflix_clone/presentation/search/widget/search_result.dart';
 
 class ScreenSearch extends StatelessWidget {
-  const ScreenSearch({Key? key}) : super(key: key);
+  ScreenSearch({Key? key}) : super(key: key);
+
+  final _debouncer = Debouncer(milliseconds: 1 * 1000);
 
   @override
   Widget build(BuildContext context) {
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      BlocProvider.of<SearchBloc>(context).add(const Initialize());
+    });
     return Column(
-      
-      children: const [
+      children: [
         CupertinoSearchTextField(
-          prefixIcon: Icon(
+          prefixIcon: const Icon(
             CupertinoIcons.search,
             color: kGreyColor,
           ),
-          suffixIcon: Icon(
+          suffixIcon: const Icon(
             CupertinoIcons.xmark_circle_fill,
             color: kGreyColor,
           ),
-          style: TextStyle(color: kWhiteColor, fontSize: 16),
+          style: const TextStyle(color: kWhiteColor, fontSize: 16),
+          onChanged: ((value) {
+            _debouncer.run(() {
+              if (value.isEmpty) {
+                return;
+              }
+              BlocProvider.of<SearchBloc>(context)
+                  .add(SearchMovie(movieQuery: value));
+            });
+          }),
         ),
         kHeight,
-        Expanded(child: SearchIdleWidget())
+        Expanded(child: BlocBuilder<SearchBloc, SearchState>(
+          builder: (context, state) {
+            if (state.searchResultList.isEmpty) {
+              return const SearchIdleWidget();
+            } else {
+              return const SearchResultWidget();
+            }
+          },
+        ))
       ],
     );
   }

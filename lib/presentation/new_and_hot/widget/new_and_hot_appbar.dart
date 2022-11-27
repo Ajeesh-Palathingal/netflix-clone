@@ -4,14 +4,14 @@ import '../../../core/colors/colors.dart';
 import '../../../core/constants.dart';
 
 class NewAndHotAppBarWidget extends StatelessWidget {
-  const NewAndHotAppBarWidget({Key? key, required this.mainWidget, this.opacity = 0.0, })
-      : super(key: key);
+  const NewAndHotAppBarWidget({
+    Key? key,
+    required this.mainWidget,
+    this.opacity = 0.0,
+  }) : super(key: key);
   final Widget mainWidget;
 
   final double opacity;
-
-  
-
 
   @override
   Widget build(BuildContext context) {
@@ -34,23 +34,21 @@ class NewAndHotAppBarWidget extends StatelessWidget {
         kWidth,
       ],
       bottom: TabBar(
-        isScrollable: true,
-        labelColor: kBlackColor,
-        unselectedLabelColor: kWhiteColor,
-        labelStyle: const TextStyle(
-          fontSize: 16,
-          fontWeight: FontWeight.bold
-        ),
-        indicator: BoxDecoration(
-          color: kWhiteColor,
-          borderRadius: BorderRadius.circular(30)
-
-        ),
-        tabs: const [
-        
-        Tab(text: "🍿 Coming Soon",),
-        Tab(text: "👀 Everyone's watching",),
-      ]),
+          isScrollable: true,
+          labelColor: kBlackColor,
+          unselectedLabelColor: kWhiteColor,
+          labelStyle:
+              const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+          indicator: BoxDecoration(
+              color: kWhiteColor, borderRadius: BorderRadius.circular(30)),
+          tabs: const [
+            Tab(
+              text: "🍿 Coming Soon",
+            ),
+            Tab(
+              text: "👀 Everyone's watching",
+            ),
+          ]),
     );
   }
 }

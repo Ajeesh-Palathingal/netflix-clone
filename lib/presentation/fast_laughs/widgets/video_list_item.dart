@@ -34,10 +34,7 @@ class VideoListItem extends StatelessWidget {
                           Icons.volume_off,
                           color: kWhiteColor,
                           size: 30,
-                        )
-                      )
-                        
-                    ),
+                        ))),
 
                 // right side option buttons
                 Column(
@@ -46,9 +43,9 @@ class VideoListItem extends StatelessWidget {
                     Padding(
                       padding: EdgeInsets.symmetric(vertical: 10),
                       child: CircleAvatar(
-                        
                         radius: 30,
-                        backgroundImage: NetworkImage("https://tse2.mm.bing.net/th?id=OIP.pBtvvAGh8Je5H5f4eKaIrQHaLB&pid=Api&P=0"),
+                        backgroundImage: NetworkImage(
+                            "https://tse2.mm.bing.net/th?id=OIP.pBtvvAGh8Je5H5f4eKaIrQHaLB&pid=Api&P=0"),
                       ),
                     ),
                     VideoOptions(icon: Icons.emoji_emotions, title: "LOL"),

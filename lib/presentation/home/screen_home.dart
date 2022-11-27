@@ -37,9 +37,6 @@ class ScreenHome extends StatelessWidget {
 
               return true;
             }),
-
-
-
             child: ListView(
               children: const [
                 BackgroundImageCard(),
@@ -56,8 +53,6 @@ class ScreenHome extends StatelessWidget {
             ),
           ),
 
-
-
           // App bar
 
           ValueListenableBuilder(
@@ -66,14 +61,12 @@ class ScreenHome extends StatelessWidget {
                 const kAppbarOpacity = 0.2;
                 if (visible) {
                   return const HomeAppBarWidget(kAppbarOpacity: kAppbarOpacity);
-                } else{
+                } else {
                   return const SizedBox();
                 }
-                  
               }),
         ],
       ),
     ));
   }
 }
-

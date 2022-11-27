@@ -34,7 +34,10 @@ class BackgroundImageCard extends StatelessWidget {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: const [
-              CustomIconButton(icon: Icons.add, label: "My List",),
+              CustomIconButton(
+                icon: Icons.add,
+                label: "My List",
+              ),
               PlayButton(),
               CustomIconButton(icon: Icons.info_outline, label: "Info")
             ],
@@ -55,26 +58,20 @@ class PlayButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextButton.icon(
-      
-      style: ButtonStyle(
-        backgroundColor: MaterialStateProperty.all(kWhiteColor)
-      ),
-      onPressed: (){}, 
-      icon: Icon(Icons.play_arrow, color: kBlackColor,), 
-      label: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 5),
-        child: Text("Play", style: TextStyle(
-          
+        style: ButtonStyle(
+            backgroundColor: MaterialStateProperty.all(kWhiteColor)),
+        onPressed: () {},
+        icon: Icon(
+          Icons.play_arrow,
           color: kBlackColor,
-          fontSize: 20,
-          fontWeight: FontWeight.bold
-        ),),
-      )
-    );
+        ),
+        label: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 5),
+          child: Text(
+            "Play",
+            style: TextStyle(
+                color: kBlackColor, fontSize: 20, fontWeight: FontWeight.bold),
+          ),
+        ));
   }
 }
-
-
-
-
-

@@ -5,7 +5,6 @@ import 'package:flutter/material.dart';
 
 import '../../widget/main_image_card.dart';
 
-
 class DownloadsImageCard extends StatelessWidget {
   const DownloadsImageCard(
       {Key? key,
@@ -34,11 +33,3 @@ class DownloadsImageCard extends StatelessWidget {
     );
   }
 }
-
-
-
-
-
-
-
-

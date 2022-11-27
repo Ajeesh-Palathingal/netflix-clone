@@ -15,31 +15,33 @@ class HomeAppBarWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AnimatedContainer(
-      duration: const Duration(
-        seconds: 1
-      ),
+      duration: const Duration(seconds: 1),
       child: Column(
         children: [
           AppBarWidget(
-              mainWidget: const SizedBox(
-                  height: 40,
-                  width: 30,
-                  child: Image(
-                      image: AssetImage(
-                          "lib/core/assets/logo.jpg")
-                        )
-                      ),
-                      opacity: kAppbarOpacity,
-                    ),
+            mainWidget: const SizedBox(
+                height: 40,
+                width: 30,
+                child: Image(image: AssetImage("lib/core/assets/logo.jpg"))),
+            opacity: kAppbarOpacity,
+          ),
           Container(
             color: kBlackColor.withOpacity(kAppbarOpacity),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: const [
-                Text("TV Shows",style: homeTitleStyle,),
-                Text("Movies",style: homeTitleStyle,),
-                Text("Category",style: homeTitleStyle,),
-    
+                Text(
+                  "TV Shows",
+                  style: homeTitleStyle,
+                ),
+                Text(
+                  "Movies",
+                  style: homeTitleStyle,
+                ),
+                Text(
+                  "Category",
+                  style: homeTitleStyle,
+                ),
               ],
             ),
           )

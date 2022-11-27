@@ -111,7 +111,8 @@ class _CenterSection extends StatelessWidget {
                               right: screenSize.width * 0.38,
                               top: screenSize.width * 0.1,
                             ),
-                            image: "$imageBaseUrl${state.downloads[0].posterPath}",
+                            image:
+                                "$imageBaseUrl${state.downloads[0].posterPath}",
                           ),
                           DownloadsImageCard(
                             height: 0.4,
@@ -121,7 +122,8 @@ class _CenterSection extends StatelessWidget {
                               left: screenSize.width * 0.38,
                               top: screenSize.width * 0.1,
                             ),
-                            image: "$imageBaseUrl${state.downloads[1].posterPath}",
+                            image:
+                                "$imageBaseUrl${state.downloads[1].posterPath}",
                           ),
                           DownloadsImageCard(
                             height: 0.46,
@@ -129,7 +131,8 @@ class _CenterSection extends StatelessWidget {
                             margin: EdgeInsets.only(
                               top: screenSize.width * 0.05,
                             ),
-                            image: "$imageBaseUrl${state.downloads[2].posterPath}",
+                            image:
+                                "$imageBaseUrl${state.downloads[2].posterPath}",
                           ),
                         ],
                       ),
@@ -161,7 +164,9 @@ class _BottomButtonsSection extends StatelessWidget {
             child: const Text(
               "Set Up",
               style: TextStyle(
-                  color: kWhiteColor, fontWeight: FontWeight.bold, fontSize: 15),
+                  color: kWhiteColor,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 15),
             ),
           ),
         ),
@@ -169,7 +174,8 @@ class _BottomButtonsSection extends StatelessWidget {
         SizedBox(
           height: 40,
           child: MaterialButton(
-            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(5)),
+            shape:
+                RoundedRectangleBorder(borderRadius: BorderRadius.circular(5)),
             color: kButtonColorWhite,
             onPressed: () {},
             child: const Text(

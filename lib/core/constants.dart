@@ -15,8 +15,5 @@ const kHeight30 = SizedBox(
   height: 30,
 );
 
-
-const TextStyle homeTitleStyle = TextStyle(
-  fontSize: 15,
-  fontWeight: FontWeight.bold
-);
+const TextStyle homeTitleStyle =
+    TextStyle(fontSize: 15, fontWeight: FontWeight.bold);

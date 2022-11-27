@@ -4,7 +4,8 @@ import 'package:netflix_clone/core/colors/colors.dart';
 import 'package:netflix_clone/core/constants.dart';
 
 class AppBarWidget extends StatelessWidget {
-  const AppBarWidget({Key? key, required this.mainWidget, this.opacity = 0.0}) : super(key: key);
+  const AppBarWidget({Key? key, required this.mainWidget, this.opacity = 0.0})
+      : super(key: key);
   final Widget mainWidget;
 
   final double opacity;
@@ -36,5 +37,3 @@ class AppBarWidget extends StatelessWidget {
     );
   }
 }
-
-

@@ -32,24 +32,18 @@ class ComingSoonTile extends StatelessWidget {
             )),
         const Expanded(
           child: NewAndHotFilmListItem(
-            filmTitle: "Spider Man", 
+            filmTitle: "Spider Man",
             iconButtons: ComingSoonIconButtons(),
             comingOn: Text(
-          "Coming on Friday",
-          style: TextStyle(fontWeight: FontWeight.bold),
-        ),
+              "Coming on Friday",
+              style: TextStyle(fontWeight: FontWeight.bold),
+            ),
           ),
-            
         )
       ],
     );
   }
 }
-
-
-
-
-
 
 class ComingSoonIconButtons extends StatelessWidget {
   const ComingSoonIconButtons({
@@ -70,7 +64,6 @@ class ComingSoonIconButtons extends StatelessWidget {
           label: "Info",
           fontSize: 12,
         ),
-        
       ],
     );
   }

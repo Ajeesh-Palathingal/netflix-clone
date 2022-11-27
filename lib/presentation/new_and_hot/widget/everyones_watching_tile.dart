@@ -14,15 +14,11 @@ class EveryonesWatchingTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return NewAndHotFilmListItem(
-      imageHeight: 0.55,
-      filmTitle: "Tall Girl 2", 
-      iconButtons: EveryonesWhatchingIconButtons());
+        imageHeight: 0.55,
+        filmTitle: "Tall Girl 2",
+        iconButtons: EveryonesWhatchingIconButtons());
   }
 }
-
-
-
-
 
 class EveryonesWhatchingIconButtons extends StatelessWidget {
   const EveryonesWhatchingIconButtons({
@@ -39,7 +35,7 @@ class EveryonesWhatchingIconButtons extends StatelessWidget {
           fontSize: 12,
         ),
         CustomIconButton(
-          icon: Icons.add, 
+          icon: Icons.add,
           label: "My List",
           fontSize: 12,
         ),

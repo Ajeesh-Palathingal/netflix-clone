@@ -18,18 +18,19 @@ class DownloadsRepository implements IDownloadsRepo {
       final Response response = await Dio().get(ApiEndPoints.downloads);
       // print("status code ${response.statusCode}");
       if (response.statusCode == 200 || response.statusCode == 201) {
+        print(response.data);
         final downloadsList = (response.data['results'] as List)
             .map((e) => Downloads.fromJson(e))
             .toList();
 
-        // print(downloadsList);
+        
         return right(downloadsList);
       } else {
         return const Left(MainFailure.serverFailure());
       }
     } catch (e) {
       log(e.toString());
-           
+
       return const Left(MainFailure.clientFailure());
     }
   }
