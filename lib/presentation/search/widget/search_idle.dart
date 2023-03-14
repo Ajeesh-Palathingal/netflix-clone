@@ -18,7 +18,7 @@ class SearchIdleWidget extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        MainTitle(
+        const MainTitle(
           title: "Top Searches",
         ),
         kHeight,
@@ -40,9 +40,11 @@ class SearchIdleWidget extends StatelessWidget {
               }
               return ListView.separated(
                 itemBuilder: (context, index) {
+                  print(state);
                   final movie = state.idleList[index];
+
                   return _TopSearchItemTile(
-                      title: movie.title ?? "No title",
+                      title: movie.title ?? movie.name ?? "No Title",
                       imageUrl: '$imageBaseUrl${movie.backdropPath}');
                 },
                 separatorBuilder: (context, index) => kHeight,
@@ -59,7 +61,8 @@ class SearchIdleWidget extends StatelessWidget {
 class _TopSearchItemTile extends StatelessWidget {
   final String title;
   final String imageUrl;
-  const _TopSearchItemTile({Key? key, required this.title, required this.imageUrl})
+  const _TopSearchItemTile(
+      {Key? key, required this.title, required this.imageUrl})
       : super(key: key);
 
   @override

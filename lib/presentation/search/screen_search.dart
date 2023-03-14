@@ -1,4 +1,5 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:netflix_clone/application/search/search_bloc.dart';
 import 'package:netflix_clone/core/colors/colors.dart';
@@ -40,14 +41,20 @@ class ScreenSearch extends StatelessWidget {
           }),
         ),
         kHeight,
-        Expanded(child: BlocBuilder<SearchBloc, SearchState>(
-          builder: (context, state) {
-            if (state.searchResultList.isEmpty) {
-              return const SearchIdleWidget();
-            } else {
-              return const SearchResultWidget();
-            }
+        Expanded(
+            child: RefreshIndicator(
+          onRefresh: () async {
+            BlocProvider.of<SearchBloc>(context).add(const Initialize());
           },
+          child: BlocBuilder<SearchBloc, SearchState>(
+            builder: (context, state) {
+              if (state.searchResultList.isEmpty) {
+                return const SearchIdleWidget();
+              } else {
+                return const SearchResultWidget();
+              }
+            },
+          ),
         ))
       ],
     );

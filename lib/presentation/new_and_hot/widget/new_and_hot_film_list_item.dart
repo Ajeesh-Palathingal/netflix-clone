@@ -1,18 +1,24 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:netflix_clone/core/colors/colors.dart';
 import 'package:netflix_clone/core/constants.dart';
 
 class NewAndHotFilmListItem extends StatelessWidget {
-  const NewAndHotFilmListItem(
+  NewAndHotFilmListItem(
       {Key? key,
-      this.imageHeight = 0.45,
+      this.imageHeight = 0.48,
       required this.filmTitle,
+      required this.movieImage,
       required this.iconButtons,
+      required this.overview,
       this.comingOn = const SizedBox()})
       : super(key: key);
 
   final double imageHeight;
   final String filmTitle;
+  final String movieImage;
+  final String overview;
   final Widget iconButtons;
   final Widget comingOn;
 
@@ -28,7 +34,24 @@ class NewAndHotFilmListItem extends StatelessWidget {
               height: screenWidth * imageHeight,
               child: Image(
                 image: NetworkImage(
-                    "https://tse2.mm.bing.net/th?id=OIP.r4FrmHWVyG5t7jsSbMj1igHaEK&pid=Api&P=0"),
+                  movieImage,
+                ),
+                loadingBuilder: (BuildContext context, Widget child,
+                    ImageChunkEvent? loadingProgress) {
+                  if (loadingProgress == null) {
+                    return child;
+                  } else {
+                    return const Center(
+                      child: CircularProgressIndicator(strokeWidth: 2),
+                    );
+                  }
+                },
+                errorBuilder: (context, error, stackTrace) => const Center(
+                  child: Icon(
+                    Icons.network_check,
+                    color: Colors.white,
+                  ),
+                ),
               ),
               // width: screenWidth - 60,
             ),
@@ -43,7 +66,7 @@ class NewAndHotFilmListItem extends StatelessWidget {
                   icon: Icon(
                     Icons.volume_off,
                     color: kWhiteColor,
-                    size: 20,
+                    size: 15,
                   ),
                 ),
               ),
@@ -53,12 +76,16 @@ class NewAndHotFilmListItem extends StatelessWidget {
         kHeight,
         Row(
           children: [
-            Text(
-              filmTitle,
-              style: TextStyle(fontSize: 30),
-              // overflow: TextOverflow.ellipsis,
+            Expanded(
+              child: Text(
+                filmTitle,
+                maxLines: 1,
+                overflow: TextOverflow.ellipsis,
+                style: TextStyle(fontSize: 26, fontWeight: FontWeight.bold),
+                // overflow: TextOverflow.ellipsis,
+              ),
             ),
-            Spacer(),
+            //Spacer(),
             iconButtons,
           ],
         ),
@@ -83,7 +110,7 @@ class NewAndHotFilmListItem extends StatelessWidget {
         ),
         kHeight,
         Text(
-          "Jksdjfh  ur fdskjfs df uyhrewuhf sjsh kjsdfhw urfh sdjhf swp jfnlknv sdifowi ujf;alskdndfsjdfhoweiuh  df f.  hrewoir sdsf skfh sdrifweo iurds.",
+          overview,
           style: TextStyle(color: kGreyColor),
         ),
         kHeight

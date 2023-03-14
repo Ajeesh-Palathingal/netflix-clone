@@ -6,9 +6,22 @@ import 'package:netflix_clone/presentation/widget/custom_icon_button.dart';
 import '../../../core/constants.dart';
 
 class ComingSoonTile extends StatelessWidget {
+  final String id;
+  final String month;
+  final String day;
+  final String posterPath;
+  final String movieName;
+  final String description;
+
   const ComingSoonTile({
-    Key? key,
-  }) : super(key: key);
+    super.key,
+    required this.id,
+    required this.month,
+    required this.day,
+    required this.posterPath,
+    required this.movieName,
+    required this.description,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -19,25 +32,27 @@ class ComingSoonTile extends StatelessWidget {
         SizedBox(
             width: 50,
             child: Column(
-              children: const [
+              children: [
                 Text(
-                  "FEB",
+                  month,
                   style: TextStyle(fontSize: 15, color: kGreyColor),
                 ),
                 Text(
-                  "11",
+                  day,
                   style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
                 )
               ],
             )),
-        const Expanded(
+        Expanded(
           child: NewAndHotFilmListItem(
-            filmTitle: "Spider Man",
+            filmTitle: movieName,
+            movieImage: posterPath,
             iconButtons: ComingSoonIconButtons(),
             comingOn: Text(
-              "Coming on Friday",
+              "Coming on $day    $month",
               style: TextStyle(fontWeight: FontWeight.bold),
             ),
+            overview: description,
           ),
         )
       ],
@@ -53,16 +68,16 @@ class ComingSoonIconButtons extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(
-      children: [
+      children: const [
         CustomIconButton(
           icon: Icons.add_alert,
           label: "Remind Me",
-          fontSize: 12,
+          fontSize: 10,
         ),
         CustomIconButton(
           icon: Icons.info_outline,
           label: "Info",
-          fontSize: 12,
+          fontSize: 10,
         ),
       ],
     );

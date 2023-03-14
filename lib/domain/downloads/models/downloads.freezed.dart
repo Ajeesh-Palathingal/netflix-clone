@@ -26,6 +26,8 @@ mixin _$Downloads {
   String? get backdropPath => throw _privateConstructorUsedError;
   @JsonKey(name: "title")
   String? get title => throw _privateConstructorUsedError;
+  @JsonKey(name: "name")
+  String? get name => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -40,7 +42,8 @@ abstract class $DownloadsCopyWith<$Res> {
   $Res call(
       {@JsonKey(name: "poster_path") String? posterPath,
       @JsonKey(name: "backdrop_path") String? backdropPath,
-      @JsonKey(name: "title") String? title});
+      @JsonKey(name: "title") String? title,
+      @JsonKey(name: "name") String? name});
 }
 
 /// @nodoc
@@ -56,6 +59,7 @@ class _$DownloadsCopyWithImpl<$Res> implements $DownloadsCopyWith<$Res> {
     Object? posterPath = freezed,
     Object? backdropPath = freezed,
     Object? title = freezed,
+    Object? name = freezed,
   }) {
     return _then(_value.copyWith(
       posterPath: posterPath == freezed
@@ -70,6 +74,10 @@ class _$DownloadsCopyWithImpl<$Res> implements $DownloadsCopyWith<$Res> {
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
               as String?,
+      name: name == freezed
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -83,7 +91,8 @@ abstract class _$$_DownloadsCopyWith<$Res> implements $DownloadsCopyWith<$Res> {
   $Res call(
       {@JsonKey(name: "poster_path") String? posterPath,
       @JsonKey(name: "backdrop_path") String? backdropPath,
-      @JsonKey(name: "title") String? title});
+      @JsonKey(name: "title") String? title,
+      @JsonKey(name: "name") String? name});
 }
 
 /// @nodoc
@@ -101,6 +110,7 @@ class __$$_DownloadsCopyWithImpl<$Res> extends _$DownloadsCopyWithImpl<$Res>
     Object? posterPath = freezed,
     Object? backdropPath = freezed,
     Object? title = freezed,
+    Object? name = freezed,
   }) {
     return _then(_$_Downloads(
       posterPath: posterPath == freezed
@@ -115,6 +125,10 @@ class __$$_DownloadsCopyWithImpl<$Res> extends _$DownloadsCopyWithImpl<$Res>
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
               as String?,
+      name: name == freezed
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -125,7 +139,8 @@ class _$_Downloads implements _Downloads {
   const _$_Downloads(
       {@JsonKey(name: "poster_path") required this.posterPath,
       @JsonKey(name: "backdrop_path") required this.backdropPath,
-      @JsonKey(name: "title") required this.title});
+      @JsonKey(name: "title") required this.title,
+      @JsonKey(name: "name") required this.name});
 
   factory _$_Downloads.fromJson(Map<String, dynamic> json) =>
       _$$_DownloadsFromJson(json);
@@ -139,10 +154,13 @@ class _$_Downloads implements _Downloads {
   @override
   @JsonKey(name: "title")
   final String? title;
+  @override
+  @JsonKey(name: "name")
+  final String? name;
 
   @override
   String toString() {
-    return 'Downloads(posterPath: $posterPath, backdropPath: $backdropPath, title: $title)';
+    return 'Downloads(posterPath: $posterPath, backdropPath: $backdropPath, title: $title, name: $name)';
   }
 
   @override
@@ -154,7 +172,8 @@ class _$_Downloads implements _Downloads {
                 .equals(other.posterPath, posterPath) &&
             const DeepCollectionEquality()
                 .equals(other.backdropPath, backdropPath) &&
-            const DeepCollectionEquality().equals(other.title, title));
+            const DeepCollectionEquality().equals(other.title, title) &&
+            const DeepCollectionEquality().equals(other.name, name));
   }
 
   @JsonKey(ignore: true)
@@ -163,7 +182,8 @@ class _$_Downloads implements _Downloads {
       runtimeType,
       const DeepCollectionEquality().hash(posterPath),
       const DeepCollectionEquality().hash(backdropPath),
-      const DeepCollectionEquality().hash(title));
+      const DeepCollectionEquality().hash(title),
+      const DeepCollectionEquality().hash(name));
 
   @JsonKey(ignore: true)
   @override
@@ -182,7 +202,8 @@ abstract class _Downloads implements Downloads {
   const factory _Downloads(
       {@JsonKey(name: "poster_path") required final String? posterPath,
       @JsonKey(name: "backdrop_path") required final String? backdropPath,
-      @JsonKey(name: "title") required final String? title}) = _$_Downloads;
+      @JsonKey(name: "title") required final String? title,
+      @JsonKey(name: "name") required final String? name}) = _$_Downloads;
 
   factory _Downloads.fromJson(Map<String, dynamic> json) =
       _$_Downloads.fromJson;
@@ -196,6 +217,9 @@ abstract class _Downloads implements Downloads {
   @override
   @JsonKey(name: "title")
   String? get title;
+  @override
+  @JsonKey(name: "name")
+  String? get name;
   @override
   @JsonKey(ignore: true)
   _$$_DownloadsCopyWith<_$_Downloads> get copyWith =>

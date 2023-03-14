@@ -7,15 +7,24 @@ import 'package:netflix_clone/presentation/widget/custom_icon_button.dart';
 import '../../../core/constants.dart';
 
 class EveryonesWatchingTile extends StatelessWidget {
+  final String posterPath;
+  final String movieName;
+  final String description;
+
   const EveryonesWatchingTile({
-    Key? key,
-  }) : super(key: key);
+    super.key,
+    required this.posterPath,
+    required this.movieName,
+    required this.description,
+  });
 
   @override
   Widget build(BuildContext context) {
     return NewAndHotFilmListItem(
         imageHeight: 0.55,
-        filmTitle: "Tall Girl 2",
+        filmTitle: movieName,
+        movieImage: posterPath,
+        overview: description,
         iconButtons: EveryonesWhatchingIconButtons());
   }
 }

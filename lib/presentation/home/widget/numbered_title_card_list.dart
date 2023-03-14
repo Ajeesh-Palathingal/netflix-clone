@@ -6,13 +6,15 @@ import '../../../core/constants.dart';
 import '../../widget/main_image_card.dart';
 import '../../widget/title.dart';
 
-final image =
-    "https://tse4.mm.bing.net/th?id=OIP.zp-KPweosXIUdpjMxBDbqgHaKr&pid=Api&P=0";
+// final image ="https://tse4.mm.bing.net/th?id=OIP.zp-KPweosXIUdpjMxBDbqgHaKr&pid=Api&P=0";
 
 class NumberedTitleCardList extends StatelessWidget {
   const NumberedTitleCardList({
     Key? key,
+    required this.posterList
   }) : super(key: key);
+
+  final List<String> posterList;
 
   @override
   Widget build(BuildContext context) {
@@ -30,8 +32,8 @@ class NumberedTitleCardList extends StatelessWidget {
                     children: [
                       Padding(
                         padding: EdgeInsets.only(left: screenWidth * 0.08),
-                        child: MainImageCard(
-                            height: 0.42, width: 0.28, image: image),
+                        child:
+                            MainImageCard(height: 0.42, width: 0.28, image: posterList[index]),
                       ),
                       Positioned(
                         bottom: -15,
